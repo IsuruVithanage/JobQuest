@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import HomePage from "./pages/HomePage";
 import Login from "./pages/LoginAndSignin/Login";
+import Signin from "./pages/LoginAndSignin/Signin";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/signin" element={<Signin />} />
           </Routes>
       </BrowserRouter>
   );

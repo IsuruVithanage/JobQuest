@@ -5,19 +5,15 @@ import anny from "../../assets/annaliticsimg.png"; // Import the image
 import conten from "../../assets/frontContent.png"; // Import the image
 import './Login.css'
 import GoogleButton from "react-google-button";
-import {Button, Checkbox, Flex, Input, Typography} from 'antd';
+import {Button, Flex, Input, Typography} from 'antd';
 import {useNavigate} from "react-router-dom";
 
-export default function Login() {
+export default function Signin() {
     const navigate=useNavigate();
 
-    const navTosignIn=()=>{
-        navigate('/signin');
+    const navToLogin=()=>{
+        navigate('/login');
     }
-
-    const onChange = (e) => {
-        console.log(`checked = ${e.target.checked}`);
-    };
 
     return (
         <div className="flex h-screen">
@@ -28,17 +24,17 @@ export default function Login() {
                 <img src={Man} alt="logo"
                      className='w-3/4 sm:w-1/3 lg:w-80 mx-auto block xl:mt-44 lg:mt-32'/> {/* Made the width responsive */}
             </div>
-            <div className="sm:w-1/2 lg:w-3/5 bg-white justify-content-center mt-5"> {/* Replaced sm:block with flex */}
+            <div className="sm:w-1/2 lg:w-3/5 bg-white justify-content-center mt-4"> {/* Replaced sm:block with flex */}
                 <div className='flex justify-content-center mt-5' style={{color: '#D92121'}}>
                     <div className='p-3 font-bold text-xl h-14 topbtn'><p>Job Seeker</p></div>
                     <div className='p-3 font-bold text-xl h-14 topbtn'><p>Company</p></div>
                     <div className='p-3 font-bold text-xl h-14 topbtn'><p>Institute</p></div>
                 </div>
-                <p className=' mt-3 text-3xl head items-center text-center'>Welcome Back</p>
+                <p className=' mt-3 text-3xl head items-center text-center'>Get more opportunities</p>
                 <div className='flex justify-center items-cente mt-5'>
                     <GoogleButton
                         type="light"
-                        label="Login with Google"
+                        label="Sign Up with Google"
                         style={{color: 'red', fontWeight: 'bold', width: "23rem"}}
                         onClick={() => {
                             console.log('Google button clicked')
@@ -47,12 +43,17 @@ export default function Login() {
                 </div>
                 <p className='mt-3 text-2sm head items-center text-center'>
                     <span style={{whiteSpace: 'nowrap'}}>----------------- </span>
-                    Or login with email
+                    Or sign up with email
                     <span style={{whiteSpace: 'nowrap'}}> ------------------</span>
                 </p>
 
                 <div className='w-96 ml-64 flex justify-center items-center'>
                     <Flex vertical gap={16} className='w-full'>
+                        <div>
+                            <Typography.Title level={5}>Full Name</Typography.Title>
+                            <Input size='large' placeholder="Enter your full name" allowClear/>
+                        </div>
+
                         <div>
                             <Typography.Title level={5}>Email Address</Typography.Title>
                             <Input size='large' placeholder="Enter email address" allowClear/>
@@ -64,7 +65,6 @@ export default function Login() {
                         </div>
                     </Flex>
                 </div>
-                <Checkbox style={{fontSize:'1rem'}} className='ml-64 mt-3' onChange={onChange}>Remember Me</Checkbox>
                 <div className='w-96 ml-64 mt-3 flex justify-center items-center'>
                     <Flex
                         vertical
@@ -74,13 +74,16 @@ export default function Login() {
                         }}
                     >
                         <Button size='large' type="primary" danger block>
-                            Login
+                            Continue
                         </Button>
                     </Flex>
                 </div>
-
-                <p style={{color: "#202430"}} className='mt-3 items-center text-center'>Don’t have an account? <span
-                    className='text-red-500 font-semibold sp' onClick={navTosignIn}>Sign Up</span></p>
+                <p style={{color: "#202430"}} className='mt-3 items-center text-center'>Already have an account? <span
+                    className='text-red-500 font-semibold sp' onClick={navToLogin}>Login</span></p>
+                <div className='w-50 ml-60 flex justify-center items-center'>
+                    <p className='text-sm' style={{color: "#7C8493"}} >By clicking 'Continue', you acknowledge that you have read and accept the <span className='text-red-500 font-semibold'>Terms of Service</span> and
+                        <span className='text-red-500 font-semibold'>Privacy Policy.</span></p>
+                </div>
             </div>
         </div>
     );
