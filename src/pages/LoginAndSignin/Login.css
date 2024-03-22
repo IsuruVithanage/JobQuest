@@ -7,6 +7,10 @@
     color: black;
 }
 
+.sp:hover {
+    cursor: pointer;
+}
+
 .head{
     font-family: 'Abel', sans-serif;
     color: #000000;
@@ -14,3 +18,7 @@
     justify-content: center;
 }
 
+:where(.css-dev-only-do-not-override-djtmh8).ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #D92121;
+    border-color: #D92121;
+}
